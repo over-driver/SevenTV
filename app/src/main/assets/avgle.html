@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>Avgle</title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+
+        .h_iframe iframe {
+            height: 100%;
+            width: 100%;
+        }
+
+        .h_iframe {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="h_iframe">
+    <!--<iframe src="" frameborder="0" allowfullscreen></iframe>-->
+</div>
+
+<script>
+    let url = "https://avgle.com/embed/" + document.location.search.split("=")[1];
+    //https://avgle.com/embed/bdec15a8cfe2e0763461
+    document.querySelector(".h_iframe").innerHTML = '<iframe src="' + url + '" frameborder="0" allowfullscreen></iframe>';
+    //document.querySelector(".h_iframe").firstChild.src = url;
+    console.log(url);
+</script>
+
+</body>
+
+</html>

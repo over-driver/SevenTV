@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.seventv">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:name=".SevenTVApplication">
+
+        <activity android:name=".activity.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.SearchActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activity.FilterActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activity.VideoDetailActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar">
+        </activity>
+
+        <activity android:name=".activity.VideoPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|keyboard"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Translucent">
+        </activity>
+
+        <activity
+            android:name=".activity.GalleryActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:label="Gallery"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+
+        <activity android:name=".activity.FavoriteActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activity.SettingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activity.WebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|orientation|screenSize|smallestScreenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <provider
+            android:authorities="${applicationId}.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+        </provider>
+
+    </application>
+
+</manifest>

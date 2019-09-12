@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--CoordinatorLayout-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout">  <!--false-->
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_bar"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:weightSum="1"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            <com.seventv.view.SimpleSearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_view"
+                android:hint="搜索"
+                android:textColorHint="#757575" />
+
+        </FrameLayout>
+        <!--
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline_status_bar1"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="0dp"/>
+
+
+        </android.support.constraint.ConstraintLayout>-->
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/app_bar"
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_main" /> <!--android:fitsSystemWindows="true"-->
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        app:key="playback_category"
+        app:title="播放">
+
+        <SwitchPreferenceCompat
+            app:key="landscape"
+            app:title="始终横屏播放"
+            app:defaultValue="false"/>
+        <!--
+        <Preference
+            app:key="forward"
+            app:summary="大: 10分钟, 中: 5分钟, 小: 1分钟"
+            app:title="快进步长"/>
+
+        <Preference
+            app:key="rewind"
+            app:summary="大: 10分钟, 中: 5分钟, 小: 1分钟"
+            app:title="快退步长"/>
+        -->
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="cache_category"
+        app:title="缓存">
+
+        <Preference
+            app:key="clean_cache"
+            app:title="清空缓存"
+            app:summary="xxx MB"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="favorite_category"
+        app:title="收藏夹">
+
+        <Preference
+            app:key="clean_favorite"
+            app:title="清空收藏夹"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="about_category"
+        app:title="关于">
+
+        <Preference
+            app:key="version"
+            app:title="当前版本"
+            app:summary="x.x.x"/>
+
+        <SwitchPreferenceCompat
+            app:key="auto_update"
+            app:title="自动检查最新版本"
+            app:defaultValue="true"/>
+
+        <Preference
+            app:key="github"
+            app:title="Github 仓库"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

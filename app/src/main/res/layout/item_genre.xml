@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:id="@+id/genre_text_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:text="左手指月"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/shape_label_normal"
+    android:layout_height="wrap_content"
+    android:textSize="13sp"
+    android:textColor="#FFFFFF">
+
+</TextView>

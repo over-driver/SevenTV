@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/movie_icon_actresses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/ic_movie_idols"
+        android:tint="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="72dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/idols_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:requiresFadingEdge="horizontal" />
+
+        <TextView
+            android:id="@+id/idols_empty_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="暂无演员信息"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="16dp">
+
+            <include layout="@layout/layout_divider_margin" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+

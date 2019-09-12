@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SevenTV</string>
+    <string name="info_title">影片名</string>
+    <string name="info_id">识别码</string>
+    <string name="info_release_date">发行时间</string>
+    <string name="info_length">影片时长</string>
+    <string name="info_label">发行商</string>
+    <string name="info_studio">制作商</string>
+    <string name="info_director">导演</string>
+    <string name="info_genre">影片类别</string>
+    <string name="info_idol">女优</string>
+    <string name="censored">有码影片</string>
+    <string name="censored_short">有码</string>
+    <string name="amateur">素人影片</string>
+    <string name="amateur_short">素人</string>
+    <string name="chinese">中文字幕</string>
+    <string name="chinese_short">中字</string>
+    <string name="uncensored">无码影片</string>
+    <string name="uncensored_short">无码</string>
+    <string name="favorite">收藏夹</string>
+    <string name="setting">设置</string>
+</resources>
