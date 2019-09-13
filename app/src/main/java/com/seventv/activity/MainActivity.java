@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         mSavedInstanceState = savedInstanceState;
         setSupportActionBar(mToolbar);
 
-        if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_update", false)){
+        if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_update", true)){
             Log.d("Main", "auto_update");
             NetworkBasic.checkUpdate(this, false);
         }

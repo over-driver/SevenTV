@@ -32,6 +32,11 @@
             app:title="清空缓存"
             app:summary="xxx MB"/>
 
+        <Preference
+            app:key="clean_apk"
+            app:title="删除APK文件"
+            app:summary="xxx MB"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

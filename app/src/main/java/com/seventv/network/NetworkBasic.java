@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seventv.BuildConfig;
+import com.seventv.SevenTVApplication;
+import com.seventv.file.FileBasic;
 import com.seventv.model.SevenVideoSource;
 import com.seventv.network.api.AvgleAPI;
 import com.seventv.network.api.BestjavpornAPI;
@@ -28,6 +30,8 @@ import com.seventv.network.parser.BestjavpornParser;
 import com.seventv.network.parser.FembedParser;
 import com.seventv.network.parser.RapidvideoParser;
 import com.seventv.network.parser.VerystreamParser;
+import com.seventv.network.parser.item.VersionInfo;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -241,56 +245,14 @@ public class NetworkBasic {
                     @Override
                     public void onNext(String s) {
                         try {
-                            ObjectMapper mapper = new ObjectMapper();
-                            JsonNode jNode = mapper.readTree(s);
-                            long versionCodeNew = mapper.treeToValue(jNode.get("versionCode"), long.class);
-                            String versionNameNew = mapper.treeToValue(jNode.get("versionName"), String.class);
-                            PackageInfo pinfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                            long versionCode = pinfo.versionCode;
-                            if(versionCodeNew > versionCode){
+                            VersionInfo newVersion = new ObjectMapper().readValue(s, VersionInfo.class);
+                            long versionCode = SevenTVApplication.getVersionCode(context);
+                            if(newVersion.versionCode > versionCode){
                                 new AlertDialog.Builder(context)
                                         .setTitle("更新")
                                         .setMessage("检测到新版本，是否更新")
                                         .setPositiveButton("立即更新", (dialog, which) -> {
-                                            String fileName = "SevenTV-release-" + versionNameNew + ".apk";
-                                            DownloadManager.Request request =
-                                                    new DownloadManager.Request(Uri.parse(
-                                                            "https://github.com/over-driver/SevenTV/releases/download/" +
-                                                                    versionNameNew + "/" + fileName
-                                                    ));
-                                            String dirType = "/download/";
-                                            File dir = context.getExternalFilesDir(dirType);
-                                            BroadcastReceiver receiver = new BroadcastReceiver() {
-                                                @Override
-                                                public void onReceive(Context context, Intent _intent) {
-                                                    File apk = new File(dir, fileName);
-                                                    if(apk.exists()){
-                                                        Intent intent;
-                                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                                                            Uri apkUri = FileProvider.getUriForFile(context,
-                                                                    BuildConfig.APPLICATION_ID + ".fileprovider", apk);
-                                                            intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
-                                                            intent.setData(apkUri);
-                                                            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                                                        } else {
-                                                            Uri apkUri = Uri.fromFile(apk);
-                                                            intent = new Intent(Intent.ACTION_VIEW);
-                                                            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-                                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                        }
-                                                        context.startActivity(intent);
-                                                    }
-                                                }
-                                            };
-
-                                            if(new File(dir, fileName).exists()){
-                                                receiver.onReceive(context, null);
-                                            } else {
-                                                context.registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-                                                request.setDestinationInExternalFilesDir(context.getApplicationContext(), dirType, fileName);
-                                                DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-                                                downloadManager.enqueue(request);
-                                            }
+                                            FileBasic.downloadInstallApk(context, newVersion);
                                         })
                                         .setNegativeButton("稍后更新", null)
                                         .show();

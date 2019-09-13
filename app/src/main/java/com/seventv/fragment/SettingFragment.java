@@ -49,11 +49,21 @@ public class SettingFragment extends PreferenceFragmentCompat {
         });
 
         Preference cleanCache = findPreference("clean_cache");
-        long cacheSize = FileBasic.dirSize(getActivity().getCacheDir()) / 1024 / 1024;
+        long cacheSize = (FileBasic.dirSize(getActivity().getCacheDir()) + FileBasic.dirSize(getActivity().getExternalCacheDir()))  / 1024 / 1024;
         cleanCache.setSummary(cacheSize + " MB");
         cleanCache.setOnPreferenceClickListener(preference -> {
             FileBasic.deleteDir(getActivity().getCacheDir());
-            preference.setSummary((FileBasic.dirSize(getActivity().getCacheDir()) / 1024 / 1024) + " MB");
+            FileBasic.deleteDir(getActivity().getExternalCacheDir());
+            preference.setSummary(((FileBasic.dirSize(getActivity().getCacheDir()) + FileBasic.dirSize(getActivity().getExternalCacheDir())) / 1024 / 1024) + " MB");
+            return true;
+        });
+
+        Preference cleanAPK = findPreference("clean_apk");
+        long apkSize = FileBasic.dirSize(FileBasic.getDownloadDir(getActivity())) / 1024 / 1024;
+        cleanAPK.setSummary(apkSize + " MB");
+        cleanAPK.setOnPreferenceClickListener(preference -> {
+            FileBasic.deleteDir(FileBasic.getDownloadDir(getActivity()));
+            preference.setSummary((FileBasic.dirSize(FileBasic.getDownloadDir(getActivity())) / 1024 / 1024) + " MB");
             return true;
         });
     }
