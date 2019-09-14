@@ -117,9 +117,6 @@ public class SevenVideoSourceManager extends SevenVideoSource {
         }
 
         observable.subscribeOn(Schedulers.io()).flatMap((response) -> {
-
-                Log.d("Observer", "flatmap");
-
                 if (response.length() > 0){
                     mVideoSourcesResolution.get(source).put(part, NetworkBasic.decodeVideoResolution(response, source));
                     mVideoSources.get(source).get(partInt).needRedirect = false;
@@ -133,9 +130,6 @@ public class SevenVideoSourceManager extends SevenVideoSource {
                 .subscribe(new DisposableObserver<String>() {
                     @Override
                     public void onNext(String s) {
-
-                        Log.d("Observer", "subscribe");
-
                         if (s.length() > 0){
                             setUrl(source, part, resolution, s, false);
                         }
@@ -148,9 +142,7 @@ public class SevenVideoSourceManager extends SevenVideoSource {
                     }
 
                     @Override
-                    public void onComplete() {
-                        Log.d("TEST_NETWORK", "Completed");
-                    }
+                    public void onComplete() { }
                 });
     }
 

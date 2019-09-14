@@ -97,7 +97,6 @@ public class VideoListFragment extends ListFragmentBase<Video> {
         return new DisposableObserver<String>() {
             @Override
             public void onNext(@NonNull String response){
-                //Log.d("visible",mCategory + isVisible());
                 List<Video> videos = SevenParser.parseVideoList(response, mCategory);
                 if (BuildConfig.DEBUG){
                     Log.d("VIDEO_LIST_FRAGMENT", "load " + videos.size() + " new videos");

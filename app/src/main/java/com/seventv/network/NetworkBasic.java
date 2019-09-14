@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seventv.BuildConfig;
+import com.seventv.R;
 import com.seventv.SevenTVApplication;
 import com.seventv.file.FileBasic;
 import com.seventv.model.SevenVideoSource;
@@ -170,14 +171,6 @@ public class NetworkBasic {
     }
 
     public static Retrofit getRetrofit(String baseUrl){
-        /*
-        Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl("")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .build();
-               */
         return new Retrofit.Builder()
                 .client(HTTP_CLIENT)
                 .baseUrl(baseUrl)
@@ -249,15 +242,15 @@ public class NetworkBasic {
                             long versionCode = SevenTVApplication.getVersionCode(context);
                             if(newVersion.versionCode > versionCode){
                                 new AlertDialog.Builder(context)
-                                        .setTitle("更新")
-                                        .setMessage("检测到新版本，是否更新")
-                                        .setPositiveButton("立即更新", (dialog, which) -> {
+                                        .setTitle(context.getResources().getString(R.string.update))
+                                        .setMessage(context.getResources().getString(R.string.ask_update))
+                                        .setPositiveButton(context.getResources().getString(R.string.update_now), (dialog, which) -> {
                                             FileBasic.downloadInstallApk(context, newVersion);
                                         })
-                                        .setNegativeButton("稍后更新", null)
+                                        .setNegativeButton(context.getResources().getString(R.string.update_later), null)
                                         .show();
                             } else if (notify) {
-                                Toast.makeText(context, "已经是最新的版本", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, context.getResources().getString(R.string.newest_version), Toast.LENGTH_SHORT).show();
                             }
                         }catch (Exception e){
                             Log.e("GITHUB", e.toString());

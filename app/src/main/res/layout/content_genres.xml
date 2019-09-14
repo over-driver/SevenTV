@@ -9,7 +9,7 @@
         android:id="@+id/movie_icon_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:src="@drawable/ic_movie_genre"
         android:tint="@color/colorPrimary" />
 
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="72dp">
+        android:paddingStart="72dp">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/genres_recycler_view"
@@ -29,7 +29,7 @@
             android:layout_height="40dp"
             android:gravity="center_vertical"
             android:visibility="gone"
-            android:text="暂无分类信息"
+            android:text="@string/no_genre"
             android:id="@+id/genre_empty_text"/>
 
         <LinearLayout

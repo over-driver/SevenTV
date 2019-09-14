@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center_vertical"
-            android:text="暂无截图"
+            android:text="@string/no_screenshot"
             android:visibility="gone" />
 
         <include layout="@layout/layout_divider_margin" />

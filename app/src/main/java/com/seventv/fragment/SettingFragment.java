@@ -26,12 +26,12 @@ public class SettingFragment extends PreferenceFragmentCompat {
 
         Preference cleanFavorite = findPreference("clean_favorite");
         cleanFavorite.setOnPreferenceClickListener(preference -> {
-                (new AlertDialog.Builder(getActivity())).setMessage("是否清空收藏夹?")
+                (new AlertDialog.Builder(getActivity())).setMessage(getResources().getString(R.string.ask_clean_favorite))
                         .setCancelable(true)
-                        .setPositiveButton("删除", (dialog, which) -> {
+                        .setPositiveButton(getResources().getString(R.string.delete), (dialog, which) -> {
                             SevenTVApplication.DB_HELPER.cleanDb();
                         })
-                        .setNegativeButton("取消", (dialog, which) -> {
+                        .setNegativeButton(getResources().getString(R.string.cancel), (dialog, which) -> {
                         }).create().show();
                 return true;
             });

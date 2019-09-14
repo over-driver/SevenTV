@@ -53,10 +53,8 @@ public class FavoriteActivity extends AppCompatActivity {
         mViewPager.setAdapter(new FavoriteActivity.TabsPagerAdapter(getSupportFragmentManager()));
 
         mTabLayout.setupWithViewPager(mViewPager, false);
-        //mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText("影片").setIcon(R.drawable.ic_general_movie));
-        //mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText("演员").setIcon(R.drawable.ic_movie_idols));
-        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText("影片").setTag(ID_VIDEO));
-        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText("演员").setTag(ID_IDOL));
+        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText(getResources().getString(R.string.video)).setTag(ID_VIDEO));
+        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText(getResources().getString(R.string.info_idol)).setTag(ID_IDOL));
 
         mTabLayoutBottom.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

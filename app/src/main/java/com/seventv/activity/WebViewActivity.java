@@ -64,7 +64,6 @@ public class WebViewActivity extends AppCompatActivity {
 
             @Override
             public WebResourceResponse shouldInterceptRequest (final WebView view, String url) {
-                //Log.d("WEBVIEW", url);
                 if(url.contains("https://avgle.com/templates/frontend/avgle-main-ah.js")){
                     String r = NetworkBasic.getSync(url);
                     int idx = r.indexOf("':if(!window[_") + 2;

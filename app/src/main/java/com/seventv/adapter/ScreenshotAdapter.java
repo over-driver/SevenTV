@@ -31,12 +31,9 @@ public class ScreenshotAdapter extends BaseQuickAdapter<String, BaseViewHolder> 
                 .load(item)
                 .into((ImageView) helper.getView(R.id.screenshot_image_view));
 
-        helper.setOnClickListener(R.id.screenshot_image_view, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        helper.setOnClickListener(R.id.screenshot_image_view, v -> {
                 Intent intent = GalleryActivity.newIntent(mContext, mData.toArray(new String[0]), helper.getAdapterPosition());
                 mContext.startActivity(intent);
-            }
         });
 
     }

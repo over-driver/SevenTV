@@ -62,15 +62,15 @@ public class IdolAdapter extends BaseQuickAdapter<Idol, BaseViewHolder> {
         helper.setOnLongClickListener(R.id.idol_view,  (View v) -> {
 
             boolean hasFavorite = SevenTVApplication.DB_HELPER.hasFavoriteIdol(item, mCategory);
-            String[] choices = {"复制名字到剪贴板", "添加到收藏夹"};
+            String[] choices = {mContext.getResources().getString(R.string.copy_name_to_clipboard), mContext.getResources().getString(R.string.add_favorite)};
             if(hasFavorite){
-                choices[1] = "从收藏夹删除";
+                choices[1] = mContext.getResources().getString(R.string.remove_favorite);
             }
             (new AlertDialog.Builder(mContext)).setItems(choices, ((dialog1, which) -> {
                 if(which == 0){
                     ClipboardManager clip = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
                     clip.setPrimaryClip(ClipData.newPlainText(mContext.getResources().getString(R.string.info_idol), item.getValue()));
-                    Toast.makeText(mContext, "已复制到剪贴板", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, mContext.getResources().getString(R.string.copied_to_clipborad), Toast.LENGTH_SHORT).show();
                 }else if(which == 1){
                     if(hasFavorite){
                         SevenTVApplication.DB_HELPER.deleteFavoriteIdol(item, mCategory);

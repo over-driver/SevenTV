@@ -205,17 +205,14 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
             PlayerFactory.setPlayManager(IjkPlayerManager.class);
             CacheFactory.setCacheManager(ProxyCacheManager.class);
             return false;
-            //mVideoPlayer.setUp(realUrl, false, "test video");
         } else if (source.equals(SevenVideoSource.VERYSTREAM)){
             PlayerFactory.setPlayManager(Exo2PlayerManager.class);
             CacheFactory.setCacheManager(ProxyCacheManager.class);
             return false;
-            //mVideoPlayer.setUp(realUrl, false, "test video");
         } else {
             PlayerFactory.setPlayManager(Exo2PlayerManager.class);
             CacheFactory.setCacheManager(ExoPlayerCacheManager.class);
             return true;
-            //mVideoPlayer.setUp(realUrl, true, "test video");
         }
 
     }

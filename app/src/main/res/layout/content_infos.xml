@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:text="暂无详细信息"
+            android:text="@string/no_info"
             android:visibility="gone" />
 
         <LinearLayout

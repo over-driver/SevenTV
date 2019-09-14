@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_toolbar_search"
-        android:title="搜索"
+        android:title="@string/search_favorite"
         app:showAsAction="always" />
 
 </menu>

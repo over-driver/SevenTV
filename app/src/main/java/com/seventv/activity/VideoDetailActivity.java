@@ -26,7 +26,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
@@ -50,10 +49,8 @@ import com.seventv.network.api.SevenAPI;
 import com.seventv.network.parser.BestjavpornParser;
 import com.seventv.network.parser.NetflavParser;
 import com.seventv.network.parser.SevenParser;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
@@ -190,11 +187,11 @@ public class VideoDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!mSourceReady){
-                    Toast.makeText(VideoDetailActivity.this, "正在加载资源", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VideoDetailActivity.this, getResources().getString(R.string.resource_loading), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (!mVideoDetail.getSevenVideoSource().hasAvailableSource()){
-                    Toast.makeText(VideoDetailActivity.this, "暂无资源", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VideoDetailActivity.this, getResources().getString(R.string.no_resource), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Intent intent;
@@ -304,12 +301,12 @@ public class VideoDetailActivity extends AppCompatActivity {
             Drawable wrappedDrawable = DrawableCompat.wrap(AppCompatResources.getDrawable(VideoDetailActivity.this, R.drawable.ic_star));
             DrawableCompat.setTint(wrappedDrawable, Color.WHITE);
             mStarButton.setIcon(wrappedDrawable);
-            mStarButton.setTitle("取消收藏");
+            mStarButton.setTitle(getResources().getString(R.string.remove_favorite));
         } else {
             Drawable wrappedDrawable = DrawableCompat.wrap(AppCompatResources.getDrawable(VideoDetailActivity.this, R.drawable.ic_star_border));
             DrawableCompat.setTint(wrappedDrawable, Color.WHITE);
             mStarButton.setIcon(wrappedDrawable);
-            mStarButton.setTitle("收藏");
+            mStarButton.setTitle(getResources().getString(R.string.add_favorite));
         }
     }
 
@@ -339,12 +336,9 @@ public class VideoDetailActivity extends AppCompatActivity {
     }
 
     private void LoadBestjavporn(){
-        Log.d("TEST_NETWORK", "try to load more source / Bestjavporn");
-
         BestjavpornAPI.INSTANCE.searchVideo(mVideoDetail.getId()).subscribeOn(Schedulers.io())
                 .flatMap((response) -> {
                     String url = BestjavpornParser.parsePageUrl(response);
-                    Log.d("TEST_NETWORK", "url:"  + url);
                     if(url.length() > 0 && url.contains(mVideoDetail.getId().toLowerCase())){
                         return BestjavpornAPI.INSTANCE.getVideo(url);
                     } else {
@@ -357,7 +351,6 @@ public class VideoDetailActivity extends AppCompatActivity {
                     public void onNext(String s) {
                         if (s.length() > 0){
                             String url = BestjavpornParser.parseSource(s);
-                            Log.d("VideoDetailActivity", "new source: "  + url);
                             mVideoDetail.getSevenVideoSource().addSource(SevenVideoSource.BESTJAVPORN, url);
                         }
                     }
@@ -365,25 +358,18 @@ public class VideoDetailActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
-                        Log.d("TEST_NETWORK", "Load more source error: " + e);
                         mSourceReady = true;
                     }
 
                     @Override
-                    public void onComplete() {
-                        Log.d("VideoDetailActivity", "load more source complete");
-                        mSourceReady = true;
-                    }
+                    public void onComplete() { mSourceReady = true; }
                 });
     }
 
     private void LoadNetflav(){
-        Log.d("TEST_NETWORK", "try to load more source / Netflav");
-
         NetflavAPI.INSTANCE.searchVideo(mVideoDetail.getId()).subscribeOn(Schedulers.io())
                 .flatMap((response) -> {
                     String url = NetflavParser.parsePageUrl(response, mVideoDetail.getId());
-                    Log.d("TEST_NETWORK", "url:"  + url);
                     if(url.length() > 0){
                         return NetflavAPI.INSTANCE.getVideo(url);
                     } else {
@@ -396,7 +382,6 @@ public class VideoDetailActivity extends AppCompatActivity {
                     public void onNext(String s) {
                         if (s.length() > 0){
                             String url = NetflavParser.parseSource(s);
-                            Log.d("VideoDetailActivity", "new source: "  + url);
                             mVideoDetail.getSevenVideoSource().addSource(SevenVideoSource.FEMBED, url + " ");
                         }
                     }
@@ -404,15 +389,11 @@ public class VideoDetailActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
-                        Log.d("TEST_NETWORK", "Load more source error: " + e);
                         mSourceReady = true;
                     }
 
                     @Override
-                    public void onComplete() {
-                        Log.d("VideoDetailActivity", "load more source complete");
-                        mSourceReady = true;
-                    }
+                    public void onComplete() { mSourceReady = true; }
                 });
     }
 }

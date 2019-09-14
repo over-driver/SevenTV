@@ -41,16 +41,13 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.FlexViewHold
         holder.mTextView.setText(item.getValue());
 
         if (item.getCode() != null){
-            holder.mTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            holder.mTextView.setOnClickListener(view -> {
                     Intent intent = FilterActivity.newIntent(mContext,
                             ((VideoDetailActivity) mContext).getCategory(),
                             SevenAPI.FILTERS.get(R.string.info_genre),
                             mContext.getResources().getString(R.string.info_genre),
                             item.getCode(), item.getValue());
                     mContext.startActivity(intent);
-                }
             });
         }
     }

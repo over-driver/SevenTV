@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="这里是错误信息"
+        android:text="@string/error"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="16sp"
         android:visibility="gone" />

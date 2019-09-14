@@ -3,7 +3,7 @@
     android:id="@+id/genre_text_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:text="左手指月"
+    tools:text="test"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:paddingTop="5dp"

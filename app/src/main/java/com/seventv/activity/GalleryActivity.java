@@ -226,7 +226,7 @@ public class GalleryActivity extends AppCompatActivity {
         return true;
     }
 
-    private static class ImageAdapter extends PagerAdapter {
+    private class ImageAdapter extends PagerAdapter {
 
         private final String[] imageUrls;
         private GalleryActivity mActivity;
@@ -276,7 +276,7 @@ public class GalleryActivity extends AppCompatActivity {
                         @Override
                         public void onLoadFailed(Drawable errorDrawable) {
                             super.onLoadFailed(errorDrawable);
-                            textView.setText("图片加载失败");
+                            textView.setText(getResources().getString(R.string.load_image_fail));
                         }
                     });
 

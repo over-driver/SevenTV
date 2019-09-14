@@ -5,6 +5,8 @@ import android.util.Log;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seventv.BuildConfig;
+import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.model.SevenVideoSource;
 
 import java.io.IOException;
@@ -22,7 +24,7 @@ public class AvgleParser {
         JsonNode jNode = mapper.readTree(json).get("response").get("videos").get(0).get("vid");
         String vid = mapper.treeToValue(jNode, String.class);
         String ts = String.valueOf(System.currentTimeMillis() / 1000);
-        map.put("标准", new SevenVideoSource.VideoUrl(String.format("http://api.rekonquer.com/psvs/mp4.php?vid=%s&ts=%s&sign=%s", vid, ts, encodeMD5(vid, ts)), false));
+        map.put(SevenTVApplication.getApp().getResources().getString(R.string.standard), new SevenVideoSource.VideoUrl(String.format("http://api.rekonquer.com/psvs/mp4.php?vid=%s&ts=%s&sign=%s", vid, ts, encodeMD5(vid, ts)), false));
     }
 
     private static String encodeMD5(String s1, String s2) {

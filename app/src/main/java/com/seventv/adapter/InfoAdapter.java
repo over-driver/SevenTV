@@ -39,7 +39,7 @@ public class InfoAdapter extends BaseQuickAdapter<Info, BaseViewHolder> {
             public boolean onLongClick(View v) {
                 ClipboardManager clip = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
                 clip.setPrimaryClip(ClipData.newPlainText(typeString, item.getValue()));
-                Toast.makeText(mContext, "已复制到剪贴板", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, mContext.getResources().getString(R.string.copied_to_clipborad), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -48,15 +48,12 @@ public class InfoAdapter extends BaseQuickAdapter<Info, BaseViewHolder> {
             TextView info_key = (TextView) helper.getView(R.id.info_value);
             info_key.setPaintFlags(info_key.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             info_key.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
-            helper.setOnClickListener(R.id.info_value, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            helper.setOnClickListener(R.id.info_value, v -> {
                     Intent intent = FilterActivity.newIntent(mContext,
                             ((VideoDetailActivity) mContext).getCategory(),
                             SevenAPI.FILTERS.get(item.getType()),
                             typeString, item.getCode(), item.getValue());
                     mContext.startActivity(intent);
-                }
             });
         }
 

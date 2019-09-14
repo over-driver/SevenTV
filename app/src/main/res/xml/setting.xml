@@ -4,16 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
         app:key="playback_category"
-        app:title="播放">
+        app:title="@string/playback">
 
         <SwitchPreferenceCompat
             app:key="landscape"
-            app:title="始终横屏播放"
+            app:title="@string/play_landscape"
             app:defaultValue="false"/>
 
         <SwitchPreferenceCompat
             app:key="play_next"
-            app:title="自动播放下一分集"
+            app:title="@string/auto_play_next"
             app:defaultValue="false"/>
         <!--
         <Preference
@@ -30,47 +30,47 @@
 
     <PreferenceCategory
         app:key="cache_category"
-        app:title="缓存">
+        app:title="@string/cache">
 
         <Preference
             app:key="clean_cache"
-            app:title="清空缓存"
+            app:title="@string/clean_cache"
             app:summary="xxx MB"/>
 
         <Preference
             app:key="clean_apk"
-            app:title="删除APK文件"
+            app:title="@string/delete_apk"
             app:summary="xxx MB"/>
 
     </PreferenceCategory>
 
     <PreferenceCategory
         app:key="favorite_category"
-        app:title="收藏夹">
+        app:title="@string/favorite">
 
         <Preference
             app:key="clean_favorite"
-            app:title="清空收藏夹"/>
+            app:title="@string/clean_favorite"/>
 
     </PreferenceCategory>
 
     <PreferenceCategory
         app:key="about_category"
-        app:title="关于">
+        app:title="@string/about">
 
         <Preference
             app:key="version"
-            app:title="当前版本"
+            app:title="@string/current_version"
             app:summary="x.x.x"/>
 
         <SwitchPreferenceCompat
             app:key="auto_update"
-            app:title="自动检查最新版本"
+            app:title="@string/auto_update"
             app:defaultValue="true"/>
 
         <Preference
             app:key="github"
-            app:title="Github 仓库"/>
+            app:title="@string/github_repo"/>
 
     </PreferenceCategory>
 

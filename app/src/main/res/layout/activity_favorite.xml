@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_view"
-                android:hint="搜索收藏夹"
+                android:hint="@string/search_favorite"
                 android:textColorHint="#757575" />
 
         </FrameLayout>
@@ -60,7 +60,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1" />
 
         <android.support.design.widget.TabLayout
