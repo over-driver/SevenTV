@@ -33,7 +33,7 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
 
     private final static long SKIP_L = 10 * 60 * 1000;
     private final static long SKIP_M = 5 * 60 * 1000;
-    private final static long SKIP_S = 1 * 60 * 1000;
+    private final static long SKIP_S = 60 * 1000;
 
     private TextView mSwitchResolution;
     private TextView mSwitchSource;
@@ -386,12 +386,6 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
      * 弹出切换清晰度
      */
     private void showSwitchDialog(final int type) {
-
-        /*
-        if (!mHadPlay) {
-            return;
-        }*/
-
         List<SwitchVideoModel> data = null;
         String oldData = null;
         switch (type){
@@ -412,9 +406,7 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
         final String oldDataFinal = oldData;
 
         SwitchVideoTypeDialog switchVideoTypeDialog = new SwitchVideoTypeDialog(getContext());
-        switchVideoTypeDialog.initList(data, new SwitchVideoTypeDialog.OnListItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
+        switchVideoTypeDialog.initList(data, position -> {
                 String newData = dataFinal.get(position).getData();
                 if(!newData.equals(oldDataFinal)){
                     switch (type){
@@ -429,18 +421,21 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
                             break;
                     }
                 }
-            }
         });
         switchVideoTypeDialog.show();
     }
-    /*
+
     @Override
     public void onCompletion(){
-        releaseNetWorkState();
-        if(Integer.parseInt(mPart) < mSevenVideoSourceManager.numPart(mSource) - 1){
-            return;
+        if(mPart == null){
+            super.onCompletion();
+        } else {
+            releaseNetWorkState();
+            if(Integer.parseInt(mPart) < mSevenVideoSourceManager.numPart(mSource) - 1){
+                return;
+            }
+            super.onCompletion();
         }
-        super.onCompletion();
     }
 
     @Override
@@ -460,5 +455,5 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
         }
         return false;
     }
-    */
+
 }
