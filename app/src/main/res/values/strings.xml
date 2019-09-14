@@ -44,7 +44,7 @@
     <string name="error">错误</string>
     <string name="standard">标准</string>
     <string name="playback">播放</string>
-    <string name="landscape_play">始终横屏播放</string>
+    <string name="play_landscape">始终横屏播放</string>
     <string name="auto_play_next">自动播放下一分集</string>
     <string name="cache">缓存</string>
     <string name="clean_cache">清除缓存</string>
