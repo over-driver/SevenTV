@@ -15,17 +15,7 @@
             app:key="play_next"
             app:title="@string/auto_play_next"
             app:defaultValue="false"/>
-        <!--
-        <Preference
-            app:key="forward"
-            app:summary="大: 10分钟, 中: 5分钟, 小: 1分钟"
-            app:title="快进步长"/>
 
-        <Preference
-            app:key="rewind"
-            app:summary="大: 10分钟, 中: 5分钟, 小: 1分钟"
-            app:title="快退步长"/>
-        -->
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -41,7 +31,6 @@
             app:key="clean_apk"
             app:title="@string/delete_apk"
             app:summary="xxx MB"/>
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -53,6 +42,18 @@
             app:title="@string/clean_favorite"/>
 
     </PreferenceCategory>
+
+    <!--
+    <PreferenceCategory
+        app:key="general_category"
+        app:title="@string/general">
+
+        <Preference
+            app:key="language"
+            app:title="@string/language"
+            app:summary="@string/auto"/>
+
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         app:key="about_category"
