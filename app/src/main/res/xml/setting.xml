@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
+<android.support.v7.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
@@ -9,6 +9,11 @@
         <SwitchPreferenceCompat
             app:key="landscape"
             app:title="始终横屏播放"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="play_next"
+            app:title="自动播放下一分集"
             app:defaultValue="false"/>
         <!--
         <Preference
@@ -70,4 +75,4 @@
     </PreferenceCategory>
 
 
-</PreferenceScreen>
+</android.support.v7.preference.PreferenceScreen>

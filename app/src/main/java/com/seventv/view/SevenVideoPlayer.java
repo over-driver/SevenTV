@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.seventv.R;
 import com.seventv.model.SevenVideoSource;
 import com.seventv.model.SevenVideoSourceManager;
@@ -19,9 +18,7 @@ import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
-
 import java.util.List;
-
 import tv.danmaku.ijk.media.exo2.Exo2PlayerManager;
 import tv.danmaku.ijk.media.exo2.ExoPlayerCacheManager;
 
@@ -53,6 +50,7 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
     private String mPart = null;
     private String mResolution = null;
     private String mMyUrl = "";
+    private boolean mPlayNext = false;
 
     /**
      * 1.5.0开始加入，如果需要不同布局区分功能，需要重载
@@ -154,17 +152,6 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
                 showSwitchDialog(SWITCH_RESOLUTION);
             }
         });
-
-        //updateText();
-        //切换视频清晰度
-        /*
-        mSwitchSize.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSwitchDialog();
-            }
-        });
-        */
     }
 
     private void safeSeekTo(long position){
@@ -195,22 +182,6 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
             mSwitchPart.setText("Part: " + Integer.toString(Integer.parseInt(mPart) + 1) + "/" + Integer.toString(mSevenVideoSourceManager.numPart(mSource)));
         }
     }
-
-    /*
-     * 设置播放URL
-     *
-     * @param url           播放url
-     * @param cacheWithPlay 是否边播边缓存
-     * @param title         title
-     * @return
-     */
-
-    /*
-    public boolean setUp(List<SwitchVideoModel> url, boolean cacheWithPlay, String title) {
-        mUrlList = url;
-        return setUp(url.get(mSourcePosition).getUrl(), cacheWithPlay, title);
-    }
-    */
 
     @Override
     protected void onClickUiToggle() {
@@ -304,8 +275,6 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
         });
         requestVideoUrl(mSevenVideoSourceManager.getPreferredSource(), "0", null);
         return flag;
-        //mUrlList = url;
-        //return setUp(url.get(mSourcePosition).getUrl(), cacheWithPlay, title);
     }
 
     private void requestVideoUrl(String source, String part, String resolution){
@@ -315,21 +284,6 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
         mSwitchPart.setClickable(false);
         mSevenVideoSourceManager.requestVideoUrl(source, part, resolution);
     }
-
-    /*
-     * 设置播放URL
-     *
-     * @param url           播放url
-     * @param cacheWithPlay 是否边播边缓存
-     * @param cachePath     缓存路径，如果是M3U8或者HLS，请设置为false
-     * @param title         title
-     * @return
-     */
-    /*
-    public boolean setUp(List<SwitchVideoModel> url, boolean cacheWithPlay, File cachePath, String title) {
-        mUrlList = url;
-        return setUp(url.get(mSourcePosition).getUrl(), cacheWithPlay, cachePath, title);
-    }*/
 
     @Override
     public int getLayoutId() {
@@ -427,7 +381,7 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
 
     @Override
     public void onCompletion(){
-        if(mPart == null){
+        if(mPart == null || !mPlayNext){
             super.onCompletion();
         } else {
             releaseNetWorkState();
@@ -447,6 +401,9 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
     }
 
     private boolean playNext(){
+        if(!mPlayNext){
+            return false;
+        }
         int intPart = Integer.parseInt(mPart);
         if(intPart < mSevenVideoSourceManager.numPart(mSource) - 1){
             String part = Integer.toString(intPart + 1);
@@ -454,6 +411,10 @@ public class SevenVideoPlayer extends StandardGSYVideoPlayer {
             return true;
         }
         return false;
+    }
+
+    public void autoPlayNext(boolean playNext){
+        mPlayNext = playNext;
     }
 
 }
