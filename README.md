@@ -1,6 +1,8 @@
+其他语言版本: [English](https://github.com/over-driver/SevenTV/blob/master/README-en.md) / [繁體中文](https://github.com/over-driver/SevenTV/blob/master/README-zh-hk.md)
+
 # SevenTV
 
-JAV streaming, 欢迎提建议/star
+JAV 在线播放, 欢迎提建议/star
 
 请自备梯子
 
