@@ -8,6 +8,9 @@ This project is based on [JAViewer](https://github.com/SplashCodes/JAViewer) and
 
 # TODO
 
+- multi-language support
+- auto install updates
+
 # Versions
 
 ## 1.2.0

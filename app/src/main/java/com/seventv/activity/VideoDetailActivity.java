@@ -126,8 +126,8 @@ public class VideoDetailActivity extends BaseActivity {
         String url = mVideo.getDetailUrl();
         //url = url.substring(url.indexOf('/', 10) + 1);
         String[] urlSplit = url.split("/");
-        String language = urlSplit[3];
-        //String language = getResources().getString(R.string.language_code);
+        //String language = urlSplit[3];
+        String language = getString(R.string.language_code);
         String id = urlSplit[5];
 
         SevenAPI.INSTANCE.getVideoDetail(language, mCategory, id)
