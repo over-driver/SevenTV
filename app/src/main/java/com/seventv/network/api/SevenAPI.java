@@ -39,39 +39,39 @@ public interface SevenAPI {
     String BASE_URL = "https://7mmtv.tv/";
     SevenAPI INSTANCE = NetworkBasic.getRetrofit(BASE_URL).create(SevenAPI.class);
 
-    @GET("zh/{category}_list/all/{page}.html")
+    @GET("{language}/{category}_list/all/{page}.html") //zh
     @Headers("Accept-Language: zh-CN,zh;q=0.8,en;q=0.6")
     Observable<String> getVideoList(
+            @Path("language") String language,
             @Path("category") String category,
             @Path("page") String page);
 
-    @GET("zh/{category}_{filter}/{query}/{page}.html")
+    @GET("{language}/{category}_{filter}/{query}/{page}.html")
     @Headers("Accept-Language: zh-CN,zh;q=0.8,en;q=0.6")
     Observable<String> filterVideo(
+            @Path("language") String language,
             @Path("category") String category,
             @Path("filter") String filter,
             @Path("query") String query,
             @Path("page") String page);
 
-    @GET("zh/{category}_search/all/{query}/{page}.html")
+    @GET("{language}/{category}_search/all/{query}/{page}.html")
     @Headers("Accept-Language: zh-CN,zh;q=0.8,en;q=0.6")
     Observable<String> searchVideo(
+            @Path("language") String language,
             @Path("category") String category,
             @Path("query") String query,
             @Path("page") String page);
 
-    /*
-    @GET("zh/{category}_{action}/{server}/{key}/{page}.html")
-    @Headers("Accept-Language: zh-CN,zh;q=0.8,en;q=0.6")
-    Observable<String> getVideoList(
-                                  @Path("category") String category,
-                                  @Path("action") String action,
-                                  @Path("server") String server,
-                                  @Path("key") String key,
-                                  @Path("page") String page);
-    */
     @GET("{url}")
     @Headers("Accept-Language: zh-CN,zh;q=0.8,en;q=0.6")
     Observable<String> getVideoDetail(@Path("url") String url);
+
+    @GET("{language}/{category}_content/{id}/index.html")
+    @Headers("Accept-Language: zh-CN,zh;q=0.8,en;q=0.6")
+    Observable<String> getVideoDetail(
+            @Path("language") String language,
+            @Path("category") String category,
+            @Path("id") String id);
 
 }

@@ -1,4 +1,4 @@
-package com.seventv.file;
+package com.seventv.utils;
 
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;

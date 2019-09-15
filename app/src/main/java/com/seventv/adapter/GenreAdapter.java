@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.activity.FilterActivity;
 import com.seventv.activity.VideoDetailActivity;
 import com.seventv.model.Genre;
@@ -45,6 +46,7 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.FlexViewHold
                     Intent intent = FilterActivity.newIntent(mContext,
                             ((VideoDetailActivity) mContext).getCategory(),
                             SevenAPI.FILTERS.get(R.string.info_genre),
+                            //SevenTVApplication.myGetString(R.string.info_genre),
                             mContext.getResources().getString(R.string.info_genre),
                             item.getCode(), item.getValue());
                     mContext.startActivity(intent);

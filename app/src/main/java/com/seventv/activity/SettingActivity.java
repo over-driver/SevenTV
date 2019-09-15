@@ -8,10 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.fragment.SettingFragment;
 import butterknife.ButterKnife;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, SettingActivity.class);
@@ -25,7 +26,7 @@ public class SettingActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getResources().getString(R.string.setting));
+        getSupportActionBar().setTitle(getString(R.string.setting));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportFragmentManager()

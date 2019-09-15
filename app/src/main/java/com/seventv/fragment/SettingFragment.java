@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.Preference;
@@ -12,10 +11,9 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.util.Log;
 import com.seventv.R;
 import com.seventv.SevenTVApplication;
-import com.seventv.file.FileBasic;
+import com.seventv.activity.MainActivity;
+import com.seventv.utils.FileBasic;
 import com.seventv.network.NetworkBasic;
-
-import java.util.Locale;
 
 public class SettingFragment extends PreferenceFragmentCompat {
 
@@ -29,12 +27,12 @@ public class SettingFragment extends PreferenceFragmentCompat {
 
         Preference cleanFavorite = findPreference("clean_favorite");
         cleanFavorite.setOnPreferenceClickListener(preference -> {
-                (new AlertDialog.Builder(getActivity())).setMessage(getResources().getString(R.string.ask_clean_favorite))
+                (new AlertDialog.Builder(getActivity())).setMessage(getActivity().getString(R.string.ask_clean_favorite))
                         .setCancelable(true)
-                        .setPositiveButton(getResources().getString(R.string.delete), (dialog, which) -> {
+                        .setPositiveButton(getActivity().getString(R.string.delete), (dialog, which) -> {
                             SevenTVApplication.DB_HELPER.cleanDb();
                         })
-                        .setNegativeButton(getResources().getString(R.string.cancel), (dialog, which) -> {
+                        .setNegativeButton(getActivity().getString(R.string.cancel), (dialog, which) -> {
                         }).create().show();
                 return true;
             });
@@ -68,6 +66,16 @@ public class SettingFragment extends PreferenceFragmentCompat {
             FileBasic.deleteDir(FileBasic.getDownloadDir(getActivity()));
             preference.setSummary((FileBasic.dirSize(FileBasic.getDownloadDir(getActivity())) / 1024 / 1024) + " MB");
             return true;
+        });
+
+        Preference languagePreference = findPreference("language");
+        languagePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                SevenTVApplication.setLocale((String) newValue);
+                //SevenTVApplication.DB_HELPER.cleanDb();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                getActivity().startActivity(intent);
+                return true;
         });
     }
 

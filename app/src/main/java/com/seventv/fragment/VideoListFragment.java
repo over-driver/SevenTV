@@ -76,15 +76,19 @@ public class VideoListFragment extends ListFragmentBase<Video> {
     private Observable<String> getObservable(){
         Observable<String> observable = null;
         String page = Integer.toString(mPage);
+
+        String language = getActivity().getString(R.string.language_code);
+        //String language = "zh";
+
         switch (mAction){
             case SevenAPI.ACTION_LIST:
-                observable = SevenAPI.INSTANCE.getVideoList(mCategory, page);
+                observable = SevenAPI.INSTANCE.getVideoList(language, mCategory, page);
                 break;
             case SevenAPI.ACTION_SEARCH:
-                observable = SevenAPI.INSTANCE.searchVideo(mCategory, mQuery, page);
+                observable = SevenAPI.INSTANCE.searchVideo(language, mCategory, mQuery, page);
                 break;
             case SevenAPI.ACTION_FILTER:
-                observable = SevenAPI.INSTANCE.filterVideo(mCategory, mFilter, mQuery, page);
+                observable = SevenAPI.INSTANCE.filterVideo(language, mCategory, mFilter, mQuery, page);
                 break;
         }
         return observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()) ;

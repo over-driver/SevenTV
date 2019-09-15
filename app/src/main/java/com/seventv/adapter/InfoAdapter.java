@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.activity.FilterActivity;
 import com.seventv.activity.VideoDetailActivity;
 import com.seventv.model.Info;
@@ -29,7 +30,7 @@ public class InfoAdapter extends BaseQuickAdapter<Info, BaseViewHolder> {
     @Override
     protected void convert(@NonNull BaseViewHolder helper, Info item) {
 
-        String typeString = mContext.getResources().getString(item.getType());
+        String typeString = mContext.getString(item.getType());
 
         helper.setText(R.id.info_key, typeString);
         helper.setText(R.id.info_value, item.getValue());
@@ -39,7 +40,7 @@ public class InfoAdapter extends BaseQuickAdapter<Info, BaseViewHolder> {
             public boolean onLongClick(View v) {
                 ClipboardManager clip = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
                 clip.setPrimaryClip(ClipData.newPlainText(typeString, item.getValue()));
-                Toast.makeText(mContext, mContext.getResources().getString(R.string.copied_to_clipborad), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, mContext.getString(R.string.copied_to_clipborad), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

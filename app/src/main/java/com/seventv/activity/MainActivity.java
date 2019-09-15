@@ -26,6 +26,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialize.util.UIUtils;
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.network.NetworkBasic;
 import com.seventv.view.SimpleSearchView;
 import com.seventv.fragment.VideoListFragment;
@@ -35,7 +36,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     public static final int ID_CENSORED = 0;
     public static final int ID_AMATEUR = 1;
@@ -118,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setFragment(int id) {
-        getSupportActionBar().setTitle(getResources().getString(TITLES.get(id)));
-
+        //getSupportActionBar().setTitle(getResources().getString(TITLES.get(id)));
+        getSupportActionBar().setTitle(getString(TITLES.get(id)));
         if (mCurrentFragmentId == id){
             return;
         }
@@ -168,13 +169,13 @@ public class MainActivity extends AppCompatActivity {
                 .withToolbar(mToolbar)
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withIdentifier(ID_CENSORED).withName(getResources().getString(R.string.censored)).withIcon(R.drawable.ic_censored).withIconTintingEnabled(true),
-                        new PrimaryDrawerItem().withIdentifier(ID_AMATEUR).withName(getResources().getString(R.string.amateur)).withIcon(R.drawable.ic_amatuer).withIconTintingEnabled(true),
-                        new PrimaryDrawerItem().withIdentifier(ID_UNCENSORED).withName(getResources().getString(R.string.uncensored)).withIcon(R.drawable.ic_uncensored).withIconTintingEnabled(true),
-                        new PrimaryDrawerItem().withIdentifier(ID_CHINESE).withName(getResources().getString(R.string.chinese)).withIcon(R.drawable.ic_chinese).withIconTintingEnabled(true),
+                        new PrimaryDrawerItem().withIdentifier(ID_CENSORED).withName(getString(R.string.censored)).withIcon(R.drawable.ic_censored).withIconTintingEnabled(true),
+                        new PrimaryDrawerItem().withIdentifier(ID_AMATEUR).withName(getString(R.string.amateur)).withIcon(R.drawable.ic_amatuer).withIconTintingEnabled(true),
+                        new PrimaryDrawerItem().withIdentifier(ID_UNCENSORED).withName(getString(R.string.uncensored)).withIcon(R.drawable.ic_uncensored).withIconTintingEnabled(true),
+                        new PrimaryDrawerItem().withIdentifier(ID_CHINESE).withName(getString(R.string.chinese)).withIcon(R.drawable.ic_chinese).withIconTintingEnabled(true),
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withIdentifier(ID_FAVORITE).withName(getResources().getString(R.string.favorite)).withIcon(R.drawable.ic_star).withIconTintingEnabled(true).withSelectable(false),
-                        new PrimaryDrawerItem().withIdentifier(ID_SETTING).withName(getResources().getString(R.string.setting)).withIcon(R.drawable.ic_setting).withIconTintingEnabled(true).withSelectable(false)
+                        new PrimaryDrawerItem().withIdentifier(ID_FAVORITE).withName(getString(R.string.favorite)).withIcon(R.drawable.ic_star).withIconTintingEnabled(true).withSelectable(false),
+                        new PrimaryDrawerItem().withIdentifier(ID_SETTING).withName(getString(R.string.setting)).withIcon(R.drawable.ic_setting).withIconTintingEnabled(true).withSelectable(false)
                 )
                 .withSelectedItem(ID_CENSORED)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {

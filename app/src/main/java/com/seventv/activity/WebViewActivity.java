@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends BaseActivity {
 
     private static final String EXTRA_ID = "video_id";
 

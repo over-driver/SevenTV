@@ -58,7 +58,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
-public class VideoDetailActivity extends AppCompatActivity {
+public class VideoDetailActivity extends BaseActivity {
 
     private static final String EXTRA_VIDEO = "video";
 
@@ -124,9 +124,13 @@ public class VideoDetailActivity extends AppCompatActivity {
 
     private void getData(){
         String url = mVideo.getDetailUrl();
-        url = url.substring(url.indexOf('/', 10) + 1);
+        //url = url.substring(url.indexOf('/', 10) + 1);
+        String[] urlSplit = url.split("/");
+        String language = urlSplit[3];
+        //String language = getResources().getString(R.string.language_code);
+        String id = urlSplit[5];
 
-        SevenAPI.INSTANCE.getVideoDetail(url)
+        SevenAPI.INSTANCE.getVideoDetail(language, mCategory, id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableObserver<String>() {
@@ -187,11 +191,11 @@ public class VideoDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!mSourceReady){
-                    Toast.makeText(VideoDetailActivity.this, getResources().getString(R.string.resource_loading), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VideoDetailActivity.this, getString(R.string.resource_loading), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (!mVideoDetail.getSevenVideoSource().hasAvailableSource()){
-                    Toast.makeText(VideoDetailActivity.this, getResources().getString(R.string.no_resource), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VideoDetailActivity.this, getString(R.string.no_resource), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Intent intent;
@@ -301,12 +305,12 @@ public class VideoDetailActivity extends AppCompatActivity {
             Drawable wrappedDrawable = DrawableCompat.wrap(AppCompatResources.getDrawable(VideoDetailActivity.this, R.drawable.ic_star));
             DrawableCompat.setTint(wrappedDrawable, Color.WHITE);
             mStarButton.setIcon(wrappedDrawable);
-            mStarButton.setTitle(getResources().getString(R.string.remove_favorite));
+            mStarButton.setTitle(getString(R.string.remove_favorite));
         } else {
             Drawable wrappedDrawable = DrawableCompat.wrap(AppCompatResources.getDrawable(VideoDetailActivity.this, R.drawable.ic_star_border));
             DrawableCompat.setTint(wrappedDrawable, Color.WHITE);
             mStarButton.setIcon(wrappedDrawable);
-            mStarButton.setTitle(getResources().getString(R.string.add_favorite));
+            mStarButton.setTitle(getString(R.string.add_favorite));
         }
     }
 

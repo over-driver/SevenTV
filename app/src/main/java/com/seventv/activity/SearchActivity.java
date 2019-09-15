@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.view.SimpleSearchView;
 import com.seventv.fragment.VideoListFragment;
 
@@ -21,7 +22,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends BaseActivity {
 
     static String EXTRA_CATEGORY = "category";
     static String EXTRA_QUERY = "query";
@@ -128,6 +129,7 @@ public class SearchActivity extends AppCompatActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             return getResources().getString(MainActivity.TITLES.get(position));
+            //return SevenTVApplication.myGetString(MainActivity.TITLES.get(position));
         }
     }
 }

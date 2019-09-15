@@ -13,7 +13,7 @@ import com.seventv.fragment.VideoListFragment;
 
 import butterknife.ButterKnife;
 
-public class FilterActivity extends AppCompatActivity {
+public class FilterActivity extends BaseActivity {
 
     static String EXTRA_CATEGORY = "category";
     static String EXTRA_QUERY = "query";

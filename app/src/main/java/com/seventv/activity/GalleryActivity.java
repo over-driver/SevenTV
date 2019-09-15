@@ -33,11 +33,12 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GalleryActivity extends AppCompatActivity {
+public class GalleryActivity extends BaseActivity {
 
     private static final boolean AUTO_HIDE = true;
     private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
@@ -276,7 +277,7 @@ public class GalleryActivity extends AppCompatActivity {
                         @Override
                         public void onLoadFailed(Drawable errorDrawable) {
                             super.onLoadFailed(errorDrawable);
-                            textView.setText(getResources().getString(R.string.load_image_fail));
+                            textView.setText(getString(R.string.load_image_fail));
                         }
                     });
 

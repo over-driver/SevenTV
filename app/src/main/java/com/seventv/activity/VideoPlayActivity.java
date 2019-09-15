@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class VideoPlayActivity extends AppCompatActivity {
+public class VideoPlayActivity extends BaseActivity {
 
 
     private static final String EXTRA_VIDEO_SOURCE = "video_source";

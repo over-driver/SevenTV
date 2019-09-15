@@ -54,6 +54,7 @@ public class IdolAdapter extends BaseQuickAdapter<Idol, BaseViewHolder> {
                 Intent intent = FilterActivity.newIntent(mContext,
                         mCategory,
                         SevenAPI.FILTERS.get(R.string.info_idol),
+                        //SevenTVApplication.myGetString(R.string.info_idol),
                         mContext.getResources().getString(R.string.info_idol),
                         item.getCode(), item.getName());
                 mContext.startActivity(intent);
@@ -62,15 +63,15 @@ public class IdolAdapter extends BaseQuickAdapter<Idol, BaseViewHolder> {
         helper.setOnLongClickListener(R.id.idol_view,  (View v) -> {
 
             boolean hasFavorite = SevenTVApplication.DB_HELPER.hasFavoriteIdol(item, mCategory);
-            String[] choices = {mContext.getResources().getString(R.string.copy_name_to_clipboard), mContext.getResources().getString(R.string.add_favorite)};
+            String[] choices = {mContext.getString(R.string.copy_name_to_clipboard), mContext.getString(R.string.add_favorite)};
             if(hasFavorite){
-                choices[1] = mContext.getResources().getString(R.string.remove_favorite);
+                choices[1] = mContext.getString(R.string.remove_favorite);
             }
             (new AlertDialog.Builder(mContext)).setItems(choices, ((dialog1, which) -> {
                 if(which == 0){
                     ClipboardManager clip = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                    clip.setPrimaryClip(ClipData.newPlainText(mContext.getResources().getString(R.string.info_idol), item.getValue()));
-                    Toast.makeText(mContext, mContext.getResources().getString(R.string.copied_to_clipborad), Toast.LENGTH_SHORT).show();
+                    clip.setPrimaryClip(ClipData.newPlainText(mContext.getString(R.string.info_idol), item.getValue()));
+                    Toast.makeText(mContext, mContext.getString(R.string.copied_to_clipborad), Toast.LENGTH_SHORT).show();
                 }else if(which == 1){
                     if(hasFavorite){
                         SevenTVApplication.DB_HELPER.deleteFavoriteIdol(item, mCategory);

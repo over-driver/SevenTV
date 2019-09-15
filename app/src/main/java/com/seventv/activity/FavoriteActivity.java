@@ -13,13 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.fragment.DbIdolListFragment;
 import com.seventv.fragment.DbVideoListFragment;
 import com.seventv.view.SimpleSearchView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FavoriteActivity extends AppCompatActivity {
+public class FavoriteActivity extends BaseActivity {
 
     private static final int ID_VIDEO = 0;
     private static final int ID_IDOL = 1;
@@ -46,22 +47,22 @@ public class FavoriteActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getResources().getString(R.string.favorite));
+        getSupportActionBar().setTitle(getString(R.string.favorite));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(new FavoriteActivity.TabsPagerAdapter(getSupportFragmentManager()));
 
         mTabLayout.setupWithViewPager(mViewPager, false);
-        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText(getResources().getString(R.string.video)).setTag(ID_VIDEO));
-        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText(getResources().getString(R.string.info_idol)).setTag(ID_IDOL));
+        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText(getString(R.string.video)).setTag(ID_VIDEO));
+        mTabLayoutBottom.addTab(mTabLayoutBottom.newTab().setText(getString(R.string.info_idol)).setTag(ID_IDOL));
 
         mTabLayoutBottom.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(current_id != (int) tab.getTag()){
                     current_id = (int) tab.getTag();
-                    getSupportActionBar().setTitle(getResources().getString(R.string.favorite));
+                    getSupportActionBar().setTitle(getString(R.string.favorite));
                     mViewPager.getAdapter().notifyDataSetChanged();
                 }
             }
@@ -94,9 +95,9 @@ public class FavoriteActivity extends AppCompatActivity {
             public void onSearchViewClosed() {
                 String query = mSearchView.getQuery();
                 if(query.length() > 0){
-                    getSupportActionBar().setTitle(getResources().getString(R.string.favorite) + ":" + query);
+                    getSupportActionBar().setTitle(getString(R.string.favorite) + ":" + query);
                 }else{
-                    getSupportActionBar().setTitle(getResources().getString(R.string.favorite));
+                    getSupportActionBar().setTitle(getString(R.string.favorite));
                 }
                 mViewPager.getAdapter().notifyDataSetChanged();
             }
@@ -148,7 +149,7 @@ public class FavoriteActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return getResources().getString(MainActivity.TITLES.get(position));
+            return getString(MainActivity.TITLES.get(position));
         }
     }
 }
