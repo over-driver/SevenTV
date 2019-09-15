@@ -58,4 +58,5 @@
     <string name="general">一般</string>
     <string name="language">語言</string>
     <string name="follow_system">跟隨系統</string>
+        <string name="warn_change_language">警告：修改語言設置可能會清空收藏夾！</string>
 </resources>

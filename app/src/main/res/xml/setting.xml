@@ -54,7 +54,8 @@
             app:entries="@array/language_preference_key"
             app:entryValues="@array/language_preference_value"
             app:summary="%s"
-            app:defaultValue="auto" />
+            app:defaultValue="auto"
+            app:dialogTitle="@string/warn_change_language"/>
 
     </PreferenceCategory>
 

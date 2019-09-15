@@ -58,6 +58,7 @@
     <string name="general">General</string>
     <string name="language">Language</string>
     <string name="follow_system">Auto</string>
+    <string name="warn_change_language">Warning: changing language may clean the favorite</string>
 
     <string-array name="language_preference_key">
         <item>@string/follow_system</item>
