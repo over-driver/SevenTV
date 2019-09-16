@@ -6,10 +6,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.seventv.model.database.FavoriteDbHelper;
 
@@ -37,10 +35,6 @@ public class SevenTVApplication extends Application {
         }
         setLocale(sp.getString("language", "auto"));
     }
-
-    //public static SevenTVApplication getApp(){
-    //    return app;
-    //}
 
     public static long getVersionCode(Context context){
         try{
@@ -73,27 +67,10 @@ public class SevenTVApplication extends Application {
         }
     }
 
-    public static String getLanguage(){
-        return mLanguage;
-    }
-
     public static Locale getLocale(){
-        String language;
-        if(mLocale == null){
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                language = app.getResources().getConfiguration().getLocales().get(0).getLanguage();
-                //Log.d("LOCALE", app.getResources().getConfiguration().getLocales().toString());
-            } else {
-                language = Locale.getDefault().getLanguage();
-            }
-            //Log.d("LOCALE", "null " + language);
-        } else {
-            language = mLocale.getLanguage();
-        }
-        //Log.d("LOCALE", "Compare " + language + " " + mLanguage);
+        String language = (mLocale == null) ? app.getString(R.string.language_code) : mLocale.getLanguage();
         if(!language.equals(mLanguage)){
             SevenTVApplication.DB_HELPER.cleanDb();
-            //Toast.makeText(app, "delete DB", Toast.LENGTH_LONG).show();
             mLanguage = language;
             PreferenceManager.getDefaultSharedPreferences(app).edit().putString(LANGUAGE_CODE_KEY, mLanguage).apply();
         }

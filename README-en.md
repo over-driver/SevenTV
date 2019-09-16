@@ -10,6 +10,7 @@ This project is based on [JAViewer](https://github.com/SplashCodes/JAViewer) and
 
 - multi-language support
 - auto install updates
+- more theme colors
 
 # Versions
 
