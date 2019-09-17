@@ -42,11 +42,10 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?android:attr/colorBackground"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabTextColor="#ffffff"
+            app:tabSelectedTextColor="?attr/colorAccent"
             />
     </android.support.design.widget.AppBarLayout>
 
@@ -63,15 +62,20 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/colorDivider" />
+
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabTextColor="#ffffff"
+            app:tabSelectedTextColor="?attr/colorAccent"
             app:tabIndicatorHeight="0dp"
             />
     </LinearLayout>

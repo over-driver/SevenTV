@@ -2,18 +2,20 @@ package com.seventv.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.constraint.Guideline;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +28,6 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialize.util.UIUtils;
 import com.seventv.R;
-import com.seventv.SevenTVApplication;
 import com.seventv.network.NetworkBasic;
 import com.seventv.view.SimpleSearchView;
 import com.seventv.fragment.VideoListFragment;
@@ -164,15 +165,21 @@ public class MainActivity extends BaseActivity {
     }
 
     public void buildDrawer(){
+
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        @ColorInt int colorPrimary = typedValue.data;
+
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(mToolbar)
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withIdentifier(ID_CENSORED).withName(getString(R.string.censored)).withIcon(R.drawable.ic_censored).withIconTintingEnabled(true),
-                        new PrimaryDrawerItem().withIdentifier(ID_AMATEUR).withName(getString(R.string.amateur)).withIcon(R.drawable.ic_amatuer).withIconTintingEnabled(true),
-                        new PrimaryDrawerItem().withIdentifier(ID_UNCENSORED).withName(getString(R.string.uncensored)).withIcon(R.drawable.ic_uncensored).withIconTintingEnabled(true),
-                        new PrimaryDrawerItem().withIdentifier(ID_CHINESE).withName(getString(R.string.chinese)).withIcon(R.drawable.ic_chinese).withIconTintingEnabled(true),
+                        new PrimaryDrawerItem().withIdentifier(ID_CENSORED).withName(getString(R.string.censored)).withIcon(R.drawable.ic_censored).withIconTintingEnabled(true).withSelectedIconColor(colorPrimary).withSelectedTextColor(colorPrimary),
+                        new PrimaryDrawerItem().withIdentifier(ID_AMATEUR).withName(getString(R.string.amateur)).withIcon(R.drawable.ic_amatuer).withIconTintingEnabled(true).withSelectedIconColor(colorPrimary).withSelectedTextColor(colorPrimary),
+                        new PrimaryDrawerItem().withIdentifier(ID_UNCENSORED).withName(getString(R.string.uncensored)).withIcon(R.drawable.ic_uncensored).withIconTintingEnabled(true).withSelectedIconColor(colorPrimary).withSelectedTextColor(colorPrimary),
+                        new PrimaryDrawerItem().withIdentifier(ID_CHINESE).withName(getString(R.string.chinese)).withIcon(R.drawable.ic_chinese).withIconTintingEnabled(true).withSelectedIconColor(colorPrimary).withSelectedTextColor(colorPrimary),
                         new DividerDrawerItem(),
                         new PrimaryDrawerItem().withIdentifier(ID_FAVORITE).withName(getString(R.string.favorite)).withIcon(R.drawable.ic_star).withIconTintingEnabled(true).withSelectable(false),
                         new PrimaryDrawerItem().withIdentifier(ID_SETTING).withName(getString(R.string.setting)).withIcon(R.drawable.ic_setting).withIconTintingEnabled(true).withSelectable(false)

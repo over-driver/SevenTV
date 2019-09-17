@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+    android:background="?attr/colorPrimary">
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_logo"
         android:id="@+id/logo"
-        android:tint="@color/colorPrimaryDark"/>
+        android:tint="?attr/colorPrimaryDark"/>
 
     <TextView
         android:id="@+id/textView"
@@ -31,12 +31,9 @@
         android:layout_marginStart="8dp"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="?attr/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/logo"
         app:layout_constraintBottom_toBottomOf="@id/logo"/>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

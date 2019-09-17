@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_view"
-                android:hint="搜索"
+                android:hint="@string/search"
                 android:textColorHint="#757575" />
 
         </FrameLayout>

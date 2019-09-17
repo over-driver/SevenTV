@@ -57,8 +57,19 @@
     <string name="auto_update">Auto detect update</string>
     <string name="general">General</string>
     <string name="language">Language</string>
-    <string name="follow_system">Auto</string>
+    <string name="follow_system">Follow system</string>
     <string name="warn_change_language">Warning: changing language may clean the favorite</string>
+    <string name="theme_color">Theme color</string>
+    <string name="night_mode">Night mode</string>
+    <string name="based_on_time">Based on time</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="pink">Pink</string>
+    <string name="red">Red</string>
+    <string name="yellow">Yellow</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="purple">Purple</string>
 
     <string-array name="language_preference_key">
         <item>@string/follow_system</item>
@@ -72,6 +83,38 @@
         <item>zh</item>
         <item>zh-rTW</item>
         <item>en</item>
+    </string-array>
+
+    <string-array name="night_mode_preference_key">
+        <item>@string/on</item>
+        <item>@string/off</item>
+        <item>@string/follow_system</item>
+        <item>@string/based_on_time</item>
+    </string-array>
+
+    <string-array name="night_mode_preference_value">
+        <item>on</item>
+        <item>off</item>
+        <item>system</item>
+        <item>time</item>
+    </string-array>
+
+    <string-array name="theme_color_preference_key">
+        <item>@string/pink</item>
+        <item>@string/red</item>
+        <item>@string/yellow</item>
+        <item>@string/green</item>
+        <item>@string/blue</item>
+        <item>@string/purple</item>
+    </string-array>
+
+    <string-array name="theme_color_preference_value">
+        <item>pink</item>
+        <item>red</item>
+        <item>yellow</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>purple</item>
     </string-array>
 
 </resources>

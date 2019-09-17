@@ -77,6 +77,14 @@ public class SettingFragment extends PreferenceFragmentCompat {
                 getActivity().startActivity(intent);
                 return true;
         });
+
+        Preference nightModePreference = findPreference("night_mode");
+        nightModePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            getActivity().startActivity(intent);
+            return true;
+        });
     }
 
 

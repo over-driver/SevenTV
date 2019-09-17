@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:src="@drawable/ic_movie_idols"
-        android:tint="@color/colorPrimary" />
+        android:tint="?attr/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"

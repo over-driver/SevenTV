@@ -57,6 +57,22 @@
             app:defaultValue="auto"
             app:dialogTitle="@string/warn_change_language"/>
 
+        <ListPreference
+            app:key="night_mode"
+            app:title="@string/night_mode"
+            app:entries="@array/night_mode_preference_key"
+            app:entryValues="@array/night_mode_preference_value"
+            app:summary="%s"
+            app:defaultValue="off" />
+
+        <ListPreference
+            app:key="theme_color"
+            app:title="@string/theme_color"
+            app:entries="@array/theme_color_preference_key"
+            app:entryValues="@array/theme_color_preference_value"
+            app:summary="%s"
+            app:defaultValue="pink" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

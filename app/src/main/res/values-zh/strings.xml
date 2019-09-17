@@ -59,4 +59,15 @@
     <string name="language">语言</string>
     <string name="follow_system">跟随系统</string>
     <string name="warn_change_language">警告：修改语言设置可能会清空收藏夹！</string>
+    <string name="theme_color">主题颜色</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="based_on_time">根据时间</string>
+    <string name="on">打开</string>
+    <string name="off">关闭</string>
+    <string name="pink">粉红</string>
+    <string name="red">红</string>
+    <string name="yellow">黄</string>
+    <string name="green">绿</string>
+    <string name="blue">蓝</string>
+    <string name="purple">紫</string>
 </resources>

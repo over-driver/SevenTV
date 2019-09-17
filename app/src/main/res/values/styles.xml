@@ -1,11 +1,23 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
+    <style name="MaterialDrawerTheme.TestTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+
+    </style>
+
+    <!-- Base application theme.   parent="Theme.AppCompat.Light.DarkActionBar" -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Customize your theme here.
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>-->
+        <!--
+        <item name="colorPrimary">#FFFB7299</item>
+        <item name="colorPrimaryDark">#FFB85671</item>
+        <item name="colorAccent">#FF00A1D6</item>-->
+        <item name="colorPrimary">#FFFB7299</item>
+        <item name="colorPrimaryDark">#FFFB7299</item>
+        <item name="colorAccent">#FFFB7299</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
@@ -36,6 +48,12 @@
         <item name="android:windowDisablePreview">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeRed" parent="">
+        <item name="colorPrimary">#FF000000</item>
+        <item name="colorPrimaryDark">#FF000000</item>
+        <item name="colorAccent">#FF000000</item>
     </style>
 
 </resources>
