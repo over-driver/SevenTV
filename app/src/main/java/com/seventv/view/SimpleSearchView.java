@@ -217,7 +217,8 @@ public class SimpleSearchView extends FrameLayout implements Filter.FilterListen
     }
 
     private void initiateView() {
-        LayoutInflater.from(mContext).inflate(R.layout.search_view, this, true);
+        //LayoutInflater.from(mContext).inflate(R.layout.search_view, this, true);
+        LayoutInflater.from(mContext).inflate(R.layout.simple_search_view, this, true);
         mSearchLayout = findViewById(R.id.search_layout);
 
         mSearchTopBar = (RelativeLayout) mSearchLayout.findViewById(R.id.search_top_bar);

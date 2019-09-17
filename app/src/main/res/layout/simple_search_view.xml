@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/search_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="invisible">
+
+    <View
+        android:id="@+id/transparent_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/><!--android:background="@color/search_layover_bg"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/search_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/material_drawer_background"><!--@android:color/white-->
+
+            <EditText
+                android:id="@+id/searchTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions"
+                android:paddingLeft="@dimen/search_view_text_padding"
+                android:paddingRight="@dimen/search_view_text_padding"
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:textColor="@color/material_drawer_primary_text"
+                android:textColorHint="@color/material_drawer_hint_text"/><!--android:textColor="#212121"
+                android:textColorHint="#727272"-->
+
+            <ImageButton
+                android:id="@+id/action_up_btn"
+                style="@style/MSV_ImageButton"
+                android:tint="@color/material_drawer_primary_icon"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_action_navigation_arrow_back"/>
+
+            <!--style="@style/MSV_ImageButton"-->
+            <ImageButton
+                android:id="@+id/action_voice_btn"
+                style="@style/MSV_ImageButton"
+                android:tint="@color/material_drawer_primary_icon"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_action_voice_search"/>
+
+            <!--                style="@style/MSV_ImageButton"-->
+            <ImageButton
+                android:id="@+id/action_empty_btn"
+                style="@style/MSV_ImageButton"
+                android:tint="@color/material_drawer_primary_icon"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_action_navigation_close"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_alignParentBottom="true"
+                /><!--android:background="#fff"
+                android:backgroundTint="#10000000"-->
+        </RelativeLayout>
+
+
+        <ListView
+            android:id="@+id/suggestion_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:divider="@android:color/transparent"/>
+    </LinearLayout>
+</FrameLayout><!-- From: file:/Users/miguelcatalan/Proyectos/Android/MaterialSearchView/library/src/main/res/layout/search_view.xml -->
