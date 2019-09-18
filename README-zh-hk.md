@@ -10,12 +10,13 @@ JAV 在線播放, 歡迎提建議/star
 
 # 版本信息
 
-## 1.3.0 （即將更新）
+## 1.3.0
 
 - 多語言支持
 - 自動安裝更新
 - 更多主題顏色
 - 夜間模式
+- [下載](https://github.com/over-driver/SevenTV/releases/download/1.3.0/SevenTV-release-1.3.0.apk)
 
 ## 1.2.0
 

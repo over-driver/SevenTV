@@ -10,12 +10,13 @@ This project is based on [JAViewer](https://github.com/SplashCodes/JAViewer) and
 
 # Versions
 
-## 1.3.0 (coming soon)
+## 1.3.0
 
 - multi-language support
 - auto install updates
 - more theme colors
 - night mode
+- [Download](https://github.com/over-driver/SevenTV/releases/download/1.3.0/SevenTV-release-1.3.0.apk)
 
 ## 1.2.0
 
