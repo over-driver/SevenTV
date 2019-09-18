@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="my_status_bar_background">@color/material_drawer_background</color>
+    <color name="drawer_header_text_color">@color/material_drawer_hint_text</color>
+
     <color name="material_drawer_background">#303030</color>
     <color name="material_drawer_primary_text">#DEFFFFFF</color>
     <color name="material_drawer_primary_icon">#8AFFFFFF</color>

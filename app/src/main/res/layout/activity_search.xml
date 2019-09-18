@@ -9,11 +9,9 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content">
 
         <FrameLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,16 +22,16 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 android:weightSum="1"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:background="@color/my_status_bar_background"/>
 
             <com.seventv.view.SimpleSearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_view"
-                android:hint="@string/search"
-                android:textColorHint="#757575" />
+                android:hint="@string/search"/>
 
         </FrameLayout>
 

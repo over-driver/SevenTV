@@ -7,6 +7,13 @@
     android:layout_height="wrap_content"
     android:background="?attr/colorPrimary">
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/my_status_bar_background">
+
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +29,7 @@
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_logo"
         android:id="@+id/logo"
-        android:tint="?attr/colorPrimaryDark"/>
+        android:tint="@color/drawer_header_text_color"/>
 
     <TextView
         android:id="@+id/textView"
@@ -31,9 +38,11 @@
         android:layout_marginStart="8dp"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
-        android:textColor="?attr/colorPrimaryDark"
+        android:textColor="@color/drawer_header_text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/logo"
         app:layout_constraintBottom_toBottomOf="@id/logo"/>
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

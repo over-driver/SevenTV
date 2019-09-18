@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.seventv.R;
@@ -37,7 +38,8 @@ public class FilterActivity extends BaseActivity {
         setContentView(R.layout.activity_filter);
         ButterKnife.bind(this);
 
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra(EXTRA_FILTER_NAME) + ": " + getIntent().getStringExtra(EXTRA_QUERY_NAME));
 

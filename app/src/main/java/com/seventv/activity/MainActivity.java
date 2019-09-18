@@ -1,9 +1,7 @@
 package com.seventv.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.constraint.Guideline;
@@ -19,8 +17,6 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -90,8 +86,6 @@ public class MainActivity extends BaseActivity {
         initFragment();
         buildDrawer();
 
-        //setStatusBarTransparent();
-        //
         if (Build.VERSION.SDK_INT >= 19) {
             mDrawer.getDrawerLayout().setFitsSystemWindows(false);
         }
@@ -136,32 +130,6 @@ public class MainActivity extends BaseActivity {
         transaction.show(fm.findFragmentByTag(FRAGMENTS.get(id)));
         transaction.commit();
         mCurrentFragmentId = id;
-    }
-
-    public void setStatusBarTransparent(){
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
-            setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true);
-        }
-        if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            //setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
-
-
-    }
-
-    public static void setWindowFlag(Activity activity, final int bits, boolean on) {
-        Window win = activity.getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
     }
 
     public void buildDrawer(){
@@ -215,6 +183,7 @@ public class MainActivity extends BaseActivity {
         }
 
         mDrawer = drawer;
+        //mDrawer.getHeader().findViewById()
 
         if (mSavedInstanceState != null) {
             mDrawer.setSelection(mSavedInstanceState.getInt(KEY_FRAGMENT));

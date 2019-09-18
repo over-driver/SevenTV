@@ -12,12 +12,14 @@ import com.seventv.SevenTVApplication;
 
 import java.util.Locale;
 
+import static android.support.v7.preference.PreferenceManager.getDefaultSharedPreferences;
+
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        String nightMode = PreferenceManager.getDefaultSharedPreferences(this).getString("night_mode", "off");
+        String nightMode = getDefaultSharedPreferences(this).getString("night_mode", "off");
         int nightModeCode;
         switch (nightMode){
             case "on":
@@ -38,7 +40,33 @@ public abstract class BaseActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(nightModeCode);
 
         super.onCreate(savedInstanceState);
-        //getTheme().applyStyle(R.style.ThemeRed, true);
+
+        String themeColor = PreferenceManager.getDefaultSharedPreferences(this).getString("theme_color", "pink");
+        int themeInt;
+        switch (themeColor){
+            case "pink":
+                themeInt = R.style.ThemePink;
+                break;
+            case "red":
+                themeInt = R.style.ThemeRed;
+                break;
+            case "blue":
+                themeInt = R.style.ThemeBlue;
+                break;
+            case "yellow":
+                themeInt = R.style.ThemeYellow;
+                break;
+            case "purple":
+                themeInt = R.style.ThemePurple;
+                break;
+            case "green":
+                themeInt = R.style.ThemeGreen;
+                break;
+            default:
+                themeInt = R.style.ThemePink;
+                break;
+        }
+        getTheme().applyStyle(themeInt, true);
     }
 
     @Override

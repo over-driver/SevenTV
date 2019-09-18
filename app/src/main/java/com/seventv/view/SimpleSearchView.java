@@ -185,7 +185,7 @@ public class SimpleSearchView extends FrameLayout implements Filter.FilterListen
             }
 
             if (a.hasValue(R.styleable.MaterialSearchView_android_textColorHint)) {
-                setHintTextColor(a.getColor(R.styleable.MaterialSearchView_android_textColorHint, 0));
+                //setHintTextColor(a.getColor(R.styleable.MaterialSearchView_android_textColorHint, 0));
             }
 
             if (a.hasValue(R.styleable.MaterialSearchView_android_hint)) {

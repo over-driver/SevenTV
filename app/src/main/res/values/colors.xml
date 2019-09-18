@@ -6,6 +6,9 @@
     <color name="colorAccent">#FF00A1D6</color>-->
     <color name="colorDivider">@color/material_drawer_divider</color>
 
+    <color name="my_status_bar_background">#00000000</color>
+    <color name="drawer_header_text_color">@color/material_drawer_background</color>
+
     <color name="material_drawer_background">#F9F9F9</color>
     <!-- Material DEFAULT text / items colors -->
     <color name="material_drawer_primary_text">#DE000000</color>

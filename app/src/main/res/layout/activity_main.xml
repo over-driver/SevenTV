@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--CoordinatorLayout-->
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/coordinator_layout">  <!--false-->
+    android:id="@+id/coordinator_layout"
+    android:background="@color/my_status_bar_background">  <!--false-->
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -15,9 +15,8 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <FrameLayout
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_scrollFlags="scroll|enterAlways">
@@ -26,33 +25,17 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 android:weightSum="1"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/><!--android:background="?attr/colorPrimary"-->
 
             <com.seventv.view.SimpleSearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_view"
-                android:hint="@string/search"
-                android:textColorHint="#757575" />
+                android:hint="@string/search" />
 
         </FrameLayout>
-        <!--
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/constraint_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.constraint.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/guideline_status_bar1"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="0dp"/>
-
-
-        </android.support.constraint.ConstraintLayout>-->
 
     </android.support.design.widget.AppBarLayout>
 

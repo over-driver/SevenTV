@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import com.seventv.R;
 import com.seventv.SevenTVApplication;
@@ -80,6 +81,14 @@ public class SettingFragment extends PreferenceFragmentCompat {
 
         Preference nightModePreference = findPreference("night_mode");
         nightModePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            getActivity().startActivity(intent);
+            return true;
+        });
+
+        Preference themeColorPreference = findPreference("theme_color");
+        themeColorPreference.setOnPreferenceChangeListener((preference, newValue) -> {
             Intent intent = new Intent(getActivity(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             getActivity().startActivity(intent);

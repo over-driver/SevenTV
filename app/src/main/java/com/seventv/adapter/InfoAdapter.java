@@ -48,7 +48,7 @@ public class InfoAdapter extends BaseQuickAdapter<Info, BaseViewHolder> {
         if (item.getCode() != null){
             TextView info_key = (TextView) helper.getView(R.id.info_value);
             info_key.setPaintFlags(info_key.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            info_key.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
+            //info_key.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
             helper.setOnClickListener(R.id.info_value, v -> {
                     Intent intent = FilterActivity.newIntent(mContext,
                             ((VideoDetailActivity) mContext).getCategory(),

@@ -10,7 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <FrameLayout
 
@@ -20,13 +20,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <android.support.v7.widget.Toolbar
-                app:titleTextColor="#FFFFFFFF"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 android:weightSum="1"
-                android:theme="@style/AppTheme.PopupOverlay"
+                android:theme="@style/AppTheme.AppBarOverlay"
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
         </FrameLayout>

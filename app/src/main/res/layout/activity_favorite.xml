@@ -2,39 +2,36 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator_layout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        ><!--android:fitsSystemWindows="true"-->
 
         <FrameLayout
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <android.support.v7.widget.Toolbar
-                app:titleTextColor="#FFFFFFFF"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 android:weightSum="1"
-                android:theme="@style/AppTheme.PopupOverlay"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:background="@color/my_status_bar_background"/>
 
             <com.seventv.view.SimpleSearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_view"
-                android:hint="@string/search_favorite"
-                android:textColorHint="#757575" />
+                android:hint="@string/search_favorite" />
 
         </FrameLayout>
 
@@ -42,10 +39,10 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabSelectedTextColor="?attr/colorAccent"
             android:background="?android:attr/colorBackground"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="?attr/colorAccent"
             />
     </android.support.design.widget.AppBarLayout>
 

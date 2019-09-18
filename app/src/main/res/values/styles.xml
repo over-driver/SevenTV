@@ -17,12 +17,11 @@
     </style>
 
     <style name="AppTheme.NoActionBar.TransparentStatusBar" parent="AppTheme.NoActionBar">
-        <!--
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>-->
+
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorControlNormal">#FFFFFFFF</item>
@@ -41,10 +40,41 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ThemeRed" parent="">
-        <item name="colorPrimary">#FF000000</item>
-        <item name="colorPrimaryDark">#FF000000</item>
-        <item name="colorAccent">#FF000000</item>
+    <style name="ThemePink">
+        <item name="colorPrimary">#FFFB7299</item>
+        <item name="colorPrimaryDark">#FFFB7299</item>
+        <item name="colorAccent">#FFFB7299</item>
     </style>
+
+    <style name="ThemeRed">
+        <item name="colorPrimary">#FFFF602C</item>
+        <item name="colorPrimaryDark">#FFFF602C</item>
+        <item name="colorAccent">#FFFF602C</item>
+    </style>
+
+    <style name="ThemeYellow">
+        <item name="colorPrimary">#FFFFBF00</item>
+        <item name="colorPrimaryDark">#FFFFBF00</item>
+        <item name="colorAccent">#FFFFBF00</item>
+    </style>
+
+    <style name="ThemeGreen">
+        <item name="colorPrimary">#FF85B63E</item>
+        <item name="colorPrimaryDark">#FF85B63E</item>
+        <item name="colorAccent">#FF85B63E</item>
+    </style>
+
+    <style name="ThemeBlue">
+        <item name="colorPrimary">#FF008BFC</item>
+        <item name="colorPrimaryDark">#FF008BFC</item>
+        <item name="colorAccent">#FF008BFC</item>
+    </style>
+
+    <style name="ThemePurple">
+        <item name="colorPrimary">#FFAA3DB8</item>
+        <item name="colorPrimaryDark">#FFAA3DB8</item>
+        <item name="colorAccent">#FFAA3DB8</item>
+    </style>
+
 
 </resources>
