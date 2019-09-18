@@ -1,6 +1,7 @@
 package com.seventv.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.seventv.BuildConfig;
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -41,6 +43,8 @@ public abstract class ListFragmentBase<T> extends Fragment {
     }
 
     protected void initSwipeRefreshLayout(){
+        @ColorInt int colorPrimary = SevenTVApplication.getColorPrimary(getActivity());
+        mRefreshLayout.setColorSchemeColors(colorPrimary);
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

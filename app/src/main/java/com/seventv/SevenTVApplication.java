@@ -6,12 +6,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
-
+import android.util.TypedValue;
 import com.seventv.model.database.FavoriteDbHelper;
-
 import java.util.Locale;
 
 public class SevenTVApplication extends Application {
@@ -113,4 +113,10 @@ public class SevenTVApplication extends Application {
         mColor = color;
     }
 
+    public static int getColorPrimary(Context context){
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        return typedValue.data;
+    }
 }

@@ -1,7 +1,6 @@
 package com.seventv.activity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.constraint.Guideline;
@@ -13,7 +12,6 @@ import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +22,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialize.util.UIUtils;
 import com.seventv.R;
+import com.seventv.SevenTVApplication;
 import com.seventv.network.NetworkBasic;
 import com.seventv.view.SimpleSearchView;
 import com.seventv.fragment.VideoListFragment;
@@ -114,7 +113,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setFragment(int id) {
-        //getSupportActionBar().setTitle(getResources().getString(TITLES.get(id)));
         getSupportActionBar().setTitle(getString(TITLES.get(id)));
         if (mCurrentFragmentId == id){
             return;
@@ -134,10 +132,7 @@ public class MainActivity extends BaseActivity {
 
     public void buildDrawer(){
 
-        TypedValue typedValue = new TypedValue();
-        Resources.Theme theme = getTheme();
-        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        @ColorInt int colorPrimary = typedValue.data;
+        @ColorInt int colorPrimary = SevenTVApplication.getColorPrimary(this);
 
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)

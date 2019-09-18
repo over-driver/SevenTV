@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.PreferenceManager;
 import com.seventv.R;
 import com.seventv.SevenTVApplication;
 import java.util.Locale;
-
 
 public abstract class BaseActivity extends AppCompatActivity {
 
