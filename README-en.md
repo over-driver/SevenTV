@@ -8,11 +8,14 @@ This project is based on [JAViewer](https://github.com/SplashCodes/JAViewer) and
 
 # TODO
 
+# Versions
+
+## 1.3.0 (coming soon)
+
 - multi-language support
 - auto install updates
 - more theme colors
-
-# Versions
+- night mode
 
 ## 1.2.0
 
