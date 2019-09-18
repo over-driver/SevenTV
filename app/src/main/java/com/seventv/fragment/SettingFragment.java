@@ -81,17 +81,21 @@ public class SettingFragment extends PreferenceFragmentCompat {
 
         Preference nightModePreference = findPreference("night_mode");
         nightModePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-            Intent intent = new Intent(getActivity(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            getActivity().startActivity(intent);
+            SevenTVApplication.setNightMode((String) newValue);
+            //Intent intent = new Intent(getActivity(), MainActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            //getActivity().startActivity(intent);
+            getActivity().recreate();
             return true;
         });
 
         Preference themeColorPreference = findPreference("theme_color");
         themeColorPreference.setOnPreferenceChangeListener((preference, newValue) -> {
-            Intent intent = new Intent(getActivity(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            getActivity().startActivity(intent);
+            SevenTVApplication.setThemeColor((String) newValue);
+            //Intent intent = new Intent(getActivity(), MainActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            //getActivity().startActivity(intent);
+            getActivity().recreate();
             return true;
         });
     }
