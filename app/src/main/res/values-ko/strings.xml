@@ -1,26 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">SevenTV</string>
-    <string name="language_code">en</string>
+    <string name="language_code">ko</string>
     <string name="info_title">Title</string>
-    <string name="info_id">Id</string>
-    <string name="info_release_date">Release</string>
-    <string name="info_length">Length</string>
-    <string name="info_label">Label</string>
-    <string name="info_studio">Studio</string>
-    <string name="info_director">Director</string>
-    <string name="info_genre">Genre</string>
-    <string name="info_idol">Actress</string>
-    <string name="censored">Censored</string>
-    <string name="censored_short">Censored</string>
-    <string name="amateur">Amateur</string>
-    <string name="amateur_short">Amateur</string>
-    <string name="chinese">Chinese subtitle</string>
-    <string name="chinese_short">Chinese</string>
-    <string name="uncensored">Uncensored</string>
-    <string name="uncensored_short">Uncensored</string>
+    <string name="info_id">ID</string>
+    <string name="info_release_date">출시일</string>
+    <string name="info_length">길이</string>
+    <string name="info_label">라벨</string>
+    <string name="info_studio">메이커</string>
+    <string name="info_director">관리자</string>
+    <string name="info_genre">장르</string>
+    <string name="info_idol">별</string>
+    <string name="censored">유모AV</string>
+    <string name="censored_short">유모</string>
+    <string name="amateur">아마추어</string>
+    <string name="amateur_short">아마추어</string>
+    <string name="chinese">중국 자막</string>
+    <string name="chinese_short">중국 자막</string>
+    <string name="uncensored">노모</string>
+    <string name="uncensored_short">노모</string>
     <string name="favorite">Favorite</string>
     <string name="setting">Settings</string>
-    <string name="video">Video</string>
+    <string name="video">비디오</string>
     <string name="load_image_fail">Fail to load image</string>
     <string name="resource_loading">Loading resource</string>
     <string name="no_resource">no resource</string>
@@ -70,55 +70,4 @@
     <string name="green">Green</string>
     <string name="blue">Blue</string>
     <string name="purple">Purple</string>
-
-    <string-array name="language_preference_key">
-        <item>@string/follow_system</item>
-        <item>简体中文</item>
-        <item>繁體中文</item>
-        <item>English</item>
-        <item>日本語</item>
-        <item>한국어</item>
-    </string-array>
-
-    <string-array name="language_preference_value">
-        <item>auto</item>
-        <item>zh</item>
-        <item>zh-rTW</item>
-        <item>en</item>
-        <item>ja</item>
-        <item>ko</item>
-    </string-array>
-
-    <string-array name="night_mode_preference_key">
-        <item>@string/on</item>
-        <item>@string/off</item>
-        <item>@string/follow_system</item>
-        <item>@string/based_on_time</item>
-    </string-array>
-
-    <string-array name="night_mode_preference_value">
-        <item>on</item>
-        <item>off</item>
-        <item>system</item>
-        <item>time</item>
-    </string-array>
-
-    <string-array name="theme_color_preference_key">
-        <item>@string/pink</item>
-        <item>@string/red</item>
-        <item>@string/yellow</item>
-        <item>@string/green</item>
-        <item>@string/blue</item>
-        <item>@string/purple</item>
-    </string-array>
-
-    <string-array name="theme_color_preference_value">
-        <item>pink</item>
-        <item>red</item>
-        <item>yellow</item>
-        <item>green</item>
-        <item>blue</item>
-        <item>purple</item>
-    </string-array>
-
 </resources>
