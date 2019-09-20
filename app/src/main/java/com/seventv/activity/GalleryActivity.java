@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -25,16 +24,11 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
-
-
 import com.bumptech.glide.request.transition.Transition;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.seventv.R;
-import com.seventv.SevenTVApplication;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -72,8 +66,6 @@ public class GalleryActivity extends BaseActivity {
                 actionBar.show();
             }
             mToolbar.startAnimation(fadeIn);
-
-            //mControlsView.setVisibility(View.VISIBLE);
         }
     };
     Animation fadeOut = new AlphaAnimation(1, 0);
@@ -126,12 +118,10 @@ public class GalleryActivity extends BaseActivity {
                 return true;
             }
         });
-        mPager.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+
+        mPager.setOnTouchListener((View v, MotionEvent event) -> {
                 detector.onTouchEvent(event);
                 return false;
-            }
         });
 
         {
@@ -232,7 +222,6 @@ public class GalleryActivity extends BaseActivity {
         private final String[] imageUrls;
         private GalleryActivity mActivity;
         private LayoutInflater inflater;
-        //private DisplayImageOptions options;
 
         ImageAdapter(Context context, String[] imageUrls, GalleryActivity mActivity) {
             inflater = LayoutInflater.from(context);
@@ -253,17 +242,11 @@ public class GalleryActivity extends BaseActivity {
         @Override
         public Object instantiateItem(ViewGroup view, int position) {
             View imageLayout = inflater.inflate(R.layout.item_gallery, view, false);
-            //final ImageView imageView = imageLayout.findViewById(R.id.image);
             final PhotoView imageView = imageLayout.findViewById(R.id.image);
             final ProgressBar progressBar = imageLayout.findViewById(R.id.progress_bar);
             final TextView textView = imageLayout.findViewById(R.id.gallery_text_error);
 
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mActivity.toggle();
-                }
-            });
+            imageView.setOnClickListener(v -> mActivity.toggle());
 
             Glide.with(imageView.getContext().getApplicationContext())
                     .load(imageUrls[position])
@@ -286,17 +269,12 @@ public class GalleryActivity extends BaseActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view.equals(object);
-        }
+        public boolean isViewFromObject(View view, Object object) { return view.equals(object); }
 
         @Override
-        public void restoreState(Parcelable state, ClassLoader loader) {
-        }
+        public void restoreState(Parcelable state, ClassLoader loader) { }
 
         @Override
-        public Parcelable saveState() {
-            return null;
-        }
+        public Parcelable saveState() { return null; }
     }
 }

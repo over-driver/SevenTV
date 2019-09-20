@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); //R.layout.activity_main
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
         mSavedInstanceState = savedInstanceState;
@@ -89,8 +89,6 @@ public class MainActivity extends BaseActivity {
             mDrawer.getDrawerLayout().setFitsSystemWindows(false);
         }
     }
-
-
 
     public void initFragment(){
         FragmentManager fm = getSupportFragmentManager();
@@ -170,15 +168,9 @@ public class MainActivity extends BaseActivity {
             Guideline guideline = drawer.getHeader().findViewById(R.id.guideline_status_bar);
             guideline.setGuidelineBegin(UIUtils.getStatusBarHeight(this, true));
             findViewById(R.id.coordinator_layout).setPadding(0, UIUtils.getStatusBarHeight(this, true), 0, 0);
-            //Guideline guideline1 = findViewById(R.id.guideline_status_bar1);
-            //guideline1.setGuidelineBegin(UIUtils.getStatusBarHeight(this, true));
-
-            //mAppBarLayout.setMinimumHeight(UIUtils.getStatusBarHeight(this, true));
-            //findViewById(R.id.constraint_layout).setMinimumHeight(UIUtils.getStatusBarHeight(this, true));
         }
 
         mDrawer = drawer;
-        //mDrawer.getHeader().findViewById()
 
         if (mSavedInstanceState != null) {
             mDrawer.setSelection(mSavedInstanceState.getInt(KEY_FRAGMENT));

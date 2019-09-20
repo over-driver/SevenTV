@@ -46,7 +46,6 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.FlexViewHold
                     Intent intent = FilterActivity.newIntent(mContext,
                             ((VideoDetailActivity) mContext).getCategory(),
                             SevenAPI.FILTERS.get(R.string.info_genre),
-                            //SevenTVApplication.myGetString(R.string.info_genre),
                             mContext.getResources().getString(R.string.info_genre),
                             item.getCode(), item.getValue());
                     mContext.startActivity(intent);

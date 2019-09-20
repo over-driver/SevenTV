@@ -34,7 +34,6 @@ public class SearchActivity extends BaseActivity {
     @BindView(R.id.search_view)
     public SimpleSearchView mSearchView;
 
-
     private String mQuery;
     private String mCategory;
 
@@ -129,7 +128,6 @@ public class SearchActivity extends BaseActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             return getResources().getString(MainActivity.TITLES.get(position));
-            //return SevenTVApplication.myGetString(MainActivity.TITLES.get(position));
         }
     }
 }

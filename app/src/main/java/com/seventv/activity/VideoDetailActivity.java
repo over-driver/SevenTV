@@ -74,7 +74,6 @@ public class VideoDetailActivity extends BaseActivity {
     NestedScrollView mVideoContent;
     @BindView(R.id.toolbar_layout)
     CollapsingToolbarLayout mCollapsingToolbarLayout;
-
     @BindView(R.id.infos_recycler_view)
     RecyclerView mInfosRecyclerView;
     @BindView(R.id.infos_empty_text)
@@ -124,9 +123,7 @@ public class VideoDetailActivity extends BaseActivity {
 
     private void getData(){
         String url = mVideo.getDetailUrl();
-        //url = url.substring(url.indexOf('/', 10) + 1);
         String[] urlSplit = url.split("/");
-        //String language = urlSplit[3];
         String language = getString(R.string.language_code);
         String id = urlSplit[5];
 
@@ -298,7 +295,6 @@ public class VideoDetailActivity extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
     private void updateStarButton(boolean isFavorite){
         if(isFavorite){

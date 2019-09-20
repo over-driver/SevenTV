@@ -54,7 +54,6 @@ public class IdolAdapter extends BaseQuickAdapter<Idol, BaseViewHolder> {
                 Intent intent = FilterActivity.newIntent(mContext,
                         mCategory,
                         SevenAPI.FILTERS.get(R.string.info_idol),
-                        //SevenTVApplication.myGetString(R.string.info_idol),
                         mContext.getResources().getString(R.string.info_idol),
                         item.getCode(), item.getName());
                 mContext.startActivity(intent);

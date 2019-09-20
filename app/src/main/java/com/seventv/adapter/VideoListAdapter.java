@@ -38,6 +38,8 @@ public class VideoListAdapter extends BaseQuickAdapter<Video, BaseViewHolder> {
                 .into((ImageView) helper.getView(R.id.video_thumbnail));
 
         final VideoView videoView = helper.getView(R.id.video_preview);
+        videoView.stopPlayback();
+        videoView.setVisibility(View.GONE);
 
         helper.setOnLongClickListener(R.id.video_card_view, v -> {
                 if (item.getPreviewUrl() == null){
@@ -63,6 +65,7 @@ public class VideoListAdapter extends BaseQuickAdapter<Video, BaseViewHolder> {
                 Intent intent = VideoDetailActivity.newIntent(mContext, item);
                 mContext.startActivity(intent);
         });
+
     }
 
 }

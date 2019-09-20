@@ -2,9 +2,7 @@ package com.seventv.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.view.View;
 import com.seventv.R;
@@ -13,20 +11,16 @@ import com.seventv.view.SevenVideoPlayer;
 import com.seventv.model.SevenVideoSourceManager;
 import com.seventv.model.VideoDetail;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
-import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-
 public class VideoPlayActivity extends BaseActivity {
-
 
     private static final String EXTRA_VIDEO_SOURCE = "video_source";
     private static final String EXTRA_TITLE = "video_title";
 
     SevenVideoPlayer mVideoPlayer;
-    //OrientationUtils mOrientationUtils;
 
     public static Intent newIntent(Context context, VideoDetail videoDetail){
         Intent intent = new Intent(context, VideoPlayActivity.class);
@@ -48,7 +42,6 @@ public class VideoPlayActivity extends BaseActivity {
         mVideoPlayer = (SevenVideoPlayer) videoPlayer.startWindowFullscreen(VideoPlayActivity.this, true, true);
         mVideoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
         mVideoPlayer.getBackButton().setVisibility(View.VISIBLE);
-        //mOrientationUtils = new OrientationUtils(this, mVideoPlayer);
         if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean("landscape", false)){
             videoPlayer.setLockLand(true);
             videoPlayer.setRotateViewAuto(true);
@@ -77,16 +70,10 @@ public class VideoPlayActivity extends BaseActivity {
     protected void onDestroy(){
         super.onDestroy();
         GSYVideoManager.releaseAllVideos();
-        //if (mOrientationUtils != null)
-        //    mOrientationUtils.releaseListener();
     }
 
     @Override
     public void onBackPressed(){
-        //if (mOrientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
-            //mVideoPlayer.getFullscreenButton().performClick();
-            //return;
-        //}
         mVideoPlayer.setVideoAllCallBack(null);
         super.onBackPressed();
     }
